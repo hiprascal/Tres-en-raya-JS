@@ -1,0 +1,564 @@
+<html>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	
+	<head>
+		<title>3 en Raya</title>
+
+		<style>
+			*{
+				font-family: 'Press Start 2P';
+			} 
+	
+			body {
+			   background-color: rgb(0, 0, 0);
+			}
+	
+			/*Estilo del tablero*/
+	
+			td {
+				width: 200px;
+				height: 200px;
+				border: 8px solid hsla(318, 100%, 51%, 0.575);
+				box-shadow: 0 0 10px hsla(318, 100%, 51%), 0 0 40px hsla(318, 100%, 51%), 0 0 80px hsla(318, 100%, 51%);
+			}
+			
+			table {
+				
+				display: none;
+				margin-left: 32%;
+				border-collapse: collapse;
+				padding-top: 20px;
+				font-size: 100px;
+				color: white;
+				text-align: center;
+			}
+			.arriba {
+				width: 100%;
+				height: 5%;
+				text-align: center;
+				color: white;
+				font-size: 50px;
+				margin-bottom: 80px;
+				margin-top: 50px;
+	
+	
+			}
+	
+			.tres-en-raya {
+				font-size: 50px;
+				background: linear-gradient(
+				hsl(239, 50%, 30%) 15%,
+				hsl(239, 50%, 40%) 25%,
+				hsl(200, 60%, 50%) 35%,
+				hsl(100, 70%, 80%) 45%,
+				hsl(60, 100%, 98%) 50%,
+				hsl(240, 0%, 0%) 52%,
+				hsl(240, 10%, 10%) 60%,
+				hsl(240, 50%, 30%) 70%,
+				hsl(220, 70%, 60%) 80%,
+				hsl(212, 92%, 76%) 85%
+				);
+				color: transparent;
+				  background-clip: text;
+				  -webkit-background-clip: text;
+				-webkit-text-stroke: 2px hsl(200, 65%, 80%);
+			}
+	
+			.abajo {
+				display: none;
+				border-radius: 20px;
+				margin-top: 60px;
+				margin-left: 450px;
+				width: 50%;
+				height: 20%;
+				text-align: center;
+				color: white;
+				background-color: hsla(318, 100%, 51%);	
+				box-shadow: 0 0 10px hsla(318, 100%, 51%), 0 0 40px hsla(318, 100%, 51%), 0 0 80px hsla(318, 100%, 51%);		
+	  
+			}
+			.contenedor-jugador1 {
+				margin-top: 30px ;
+				margin-left: 30px;
+				float: left;
+				font-size: 30px;
+				background: linear-gradient(
+				hsl(239, 50%, 30%) 15%,
+				hsl(239, 50%, 40%) 25%,
+				hsl(200, 60%, 50%) 35%,
+				hsl(100, 70%, 80%) 45%,
+				hsl(60, 100%, 98%) 50%,
+				hsl(240, 0%, 0%) 52%,
+				hsl(240, 10%, 10%) 60%,
+				hsl(240, 50%, 30%) 70%,
+				hsl(220, 70%, 60%) 80%,
+				hsl(212, 92%, 76%) 85%
+				);
+				color: transparent;
+				  background-clip: text;
+				  -webkit-background-clip: text;
+				-webkit-text-stroke: 2px hsl(200, 65%, 80%);  
+			}
+	
+			.contenedor-jugador2 {
+				margin-top: 30px ;
+				margin-right: 30px;
+				float: right;
+				font-size: 30px;
+				background: linear-gradient(
+				hsl(239, 50%, 30%) 15%,
+				hsl(239, 50%, 40%) 25%,
+				hsl(200, 60%, 50%) 35%,
+				hsl(100, 70%, 80%) 45%,
+				hsl(60, 100%, 98%) 50%,
+				hsl(240, 0%, 0%) 52%,
+				hsl(240, 10%, 10%) 60%,
+				hsl(240, 50%, 30%) 70%,
+				hsl(220, 70%, 60%) 80%,
+				hsl(212, 92%, 76%) 85%
+				);
+				color: transparent;
+				  background-clip: text;
+				  -webkit-background-clip: text;
+				-webkit-text-stroke: 2px hsl(200, 65%, 80%);
+			}
+	
+			.sombra {
+				filter: drop-shadow(1px 3px 0px hsl(242, 54%, 10%))
+				drop-shadow(1px 3px 0px hsl(242, 54%, 15%))
+				drop-shadow(1px 3px 0px hsl(242, 54%, 20%))
+				drop-shadow(1px 3px 0px hsl(242, 54%, 25%))
+				drop-shadow(1px 3px 0px hsl(242, 54%, 30%))
+				drop-shadow(0px 0px 10px rgba(16, 16, 16, 0.4));
+			}
+	
+			
+	
+			/*Aqui se modifican las celdas de forma individual para eliminar bordes y conseguir el efecto del tablero tres en raya tradicional*/
+	
+			.derecha-arriba {
+				width: 200px;
+				height: 200px;
+				border-left: 2px solid rgb(0, 0, 0);
+				border-top: 2px solid rgb(0, 0, 0);
+			}
+	
+			.arriba-dos {
+				width: 200px;
+				height: 200px;
+				border-top: 2px solid rgb(0, 0, 0);
+			}
+	
+			.arriba-tres {
+				width: 200px;
+				height: 200px;
+				border-top: 2px solid rgb(0, 0, 0);
+				border-right: 2px solid rgb(0, 0, 0);
+			}
+	
+			.centro-uno {
+				width: 200px;
+				height: 200px;
+				border-left: 2px solid rgb(0, 0, 0);
+			}
+	
+			.centro-dos {
+				width: 200px;
+				height: 200px;
+			}
+	
+			.centro-tres {
+				width: 200px;
+				height: 200px;
+				border-right: 2px solid rgb(0, 0, 0);
+			}
+	
+			.abajo-uno {
+				width: 200px;
+				height: 200px;
+				border-bottom: 2px solid rgb(0, 0, 0);
+				border-left: 2px solid rgb(0, 0, 0);
+			}
+	
+			.abajo-dos {
+				width: 200px;
+				height: 200px;
+				border-bottom: 2px solid rgb(0, 0, 0);
+			}
+	
+			.abajo-tres {
+				width: 200px;
+				height: 200px;
+				border-bottom: 2px solid rgb(0, 0, 0);
+				border-right: 2px solid rgb(0, 0, 0);
+			}
+	
+			/*Estilo del formulario*/
+	
+			form {
+				display: grid;
+				  place-content: center;
+			}
+	
+			.nombre {
+				display: none;
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				box-sizing: border-box;
+				border-bottom : 3px solid ;
+				-webkit-transition: 0.5s;
+				transition: 0.5s;
+				outline: none;
+				border-radius: 20px;
+				color: black;
+			}
+	
+			.nombre1 .nombre2{
+				display: none;
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				box-sizing: border-box;
+				border-bottom : 3px solid white;
+				-webkit-transition: 0.5s;
+				transition: 0.5s;
+				outline: none;
+				border-radius: 20px;
+				color: black;
+			}
+			/*:focus define el estilo del input cuando se selecciona*/
+			.nombre:focus {
+				border: 3px solid hsla(318, 100%, 51%, 0.575);
+				box-shadow: 0 0 10px hsla(318, 100%, 51%), 0 0 40px hsla(318, 100%, 51%), 0 0 80px hsla(318, 100%, 51%);
+			}
+	
+			.button {
+				display: inline-block;
+				border-radius: 4px;
+				background-color: black;
+				border: 5px solid rgb(5, 41, 107);
+				color: white;
+				text-align: center;
+				font-size: 15px;
+				padding: 20px;
+				width: 200px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 5px;
+				}
+	
+			.button:hover {
+				background-color: rgb(5, 41, 107) ;
+				box-shadow: 0 0 10px rgb(5, 41, 107), 0 0 40px rgb(5, 41, 107), 0 0 80px rgb(5, 41, 107);
+			}
+		
+			.button-jugar {
+				display: none;
+				border-radius: 4px;
+				background-color: black;
+				border: 5px solid rgb(5, 41, 107);
+				color: white;
+				text-align: center;
+				font-size: 15px;
+				padding: 20px;
+				width: 200px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 5px;
+				}
+		
+			.button-jugar:hover {
+				background-color: rgb(5, 41, 107) ;
+				box-shadow: 0 0 10px rgb(5, 41, 107), 0 0 40px rgb(5, 41, 107), 0 0 80px rgb(5, 41, 107); ;
+				}
+	
+		</style>
+
+	</head>
+
+	<body>
+       
+		
+		<div class="arriba">
+			<div class="tres-en-raya clip sombra">
+				Tres en Raya
+			</div>
+		</div>
+
+		<form id="formulario">
+			<input class="button" type="button" value="1 jugador" onclick="botonesformulario(1)"><br><br>
+			<input class="button" type="button" value="2 jugadores" onclick="botonesformulario(2)"><br><br>
+
+            <input placeholder="Introduce tu nombre" type="text" id="nombre" class="nombre"><br><br>
+
+			<input placeholder="Nombre jugador 1" type="text" id="nombre1" class="nombre" style="display:none;"><br><br>
+			<input placeholder="Nombre jugador 2" type="text" id="nombre2" class="nombre" style="display:none;"><br><br>
+
+            <input class="button-jugar" id = "button-jugar" type="button" value="Jugar" onclick="empezarjuego()" >
+        </form> 
+
+		<table id = "tablero">
+			<tr>
+				<td id="c0" class= "derecha-arriba" onclick= "pulsa(0)"></td>
+				<td id="c1" class= "arriba-dos" onclick="pulsa(1)"></td>
+				<td id="c2" class= "arriba-tres" onclick="pulsa(2)"></td>
+			</tr>
+
+			<tr>
+				<td id="c3" class= "centro-uno" onclick="pulsa(3)"></td>
+				<td id="c4" class= "centro-dos" onclick="pulsa(4)"></td>
+				<td id="c5" class= "centro-tres" onclick="pulsa(5)"></td>
+			</tr>
+
+			<tr>
+				<td id="c6" class= "abajo-uno" onclick="pulsa(6)"></td>
+				<td id="c7" class="abajo-dos" onclick="pulsa(7)"></td>
+				<td id="c8" class="abajo-tres" onclick="pulsa(8)"></td>
+			</tr>
+		</table>
+		<div class="abajo" id ="abajo">
+			<div class="contenedor-jugador1 clip sombra">
+				<p id="jugador1" class="jugador1">Jugador1</p>
+			</div>
+
+			<div class="contenedor-jugador2 clip sombra">
+				<p id="jugador2" class="jugador2">Jugador2</p>
+			</div>	
+		</div>
+		<script>
+        /* Definimos las variables*/
+            let turno = 1;
+            const ficha = ["X", "O"];
+			let un_jugador = true;
+			let nombre = "";
+			let jug1 = "";
+			let jug2 = "";
+		/* leerarray(tablero) --> guarda las posiciones de las fichas en una tabla */
+			function leerarray(tablero){
+			   tablero[0]=document.getElementById("c0").innerHTML;
+			   tablero[1]=document.getElementById("c1").innerHTML;                           
+               tablero[2]=document.getElementById("c2").innerHTML;
+               tablero[3]=document.getElementById("c3").innerHTML;
+               tablero[4]=document.getElementById("c4").innerHTML;
+               tablero[5]=document.getElementById("c5").innerHTML;
+               tablero[6]=document.getElementById("c6").innerHTML;
+               tablero[7]=document.getElementById("c7").innerHTML;
+               tablero[8]=document.getElementById("c8").innerHTML;
+				
+			}
+		
+
+		/* escribir(celda) --> si juego no ha terminado y se pulsa una posición vacía poner el símbolo correspondiente y cambiar el siguiente */
+			function pulsa(celda){
+				const tablero = [];
+				leerarray(tablero);
+				if(tablero[celda] == "" && !esfinal()){
+					cambiaturno(); 
+					escribe(celda);	
+					cambiaturno();
+					setTimeout(escribirIA, 1000);
+					
+				}
+                
+                if(esfinal() == 1){
+                    window.alert("Ha ganado el jugador 1");
+                }else if(esfinal() == 2){
+                    window.alert("Ha ganado el jugador 2");
+                }else if(esfinal() == 0){
+                    window.alert("La partida ha quedado en tablas");
+                }  
+			}
+			
+		/* borrartablero() --> borra el tablero de fichas, dejándolo vacío, listo para empezar otra vez */
+			function borrartablero(){
+				//
+			}
+			
+		/* pedirnombre() --> Al cargar la página se pide el nombre de los 2 jugadores */
+			function pedirnombre(){
+				
+			}
+			
+		/* esfinal() --> devuelve true si un jugador tiene ya 3 fichas en raya o no quedan posiciones libres, false en caso contrario */
+			function esfinal(){
+				const tablero = [];
+				leerarray(tablero);
+				
+				if ((tablero[0] == "X" && tablero[1] == "X" && tablero[2] == "X") ||
+			
+					(tablero[3] == "X" && tablero[4] == "X" && tablero[5] == "X") ||
+			
+					(tablero[6] == "X" && tablero[7] == "X" && tablero[8] == "X") ||
+			
+					(tablero[0] == "X" && tablero[3] == "X" && tablero[6] == "X") ||
+			
+					(tablero[1] == "X" && tablero[4] == "X" && tablero[7] == "X") ||
+			
+					(tablero[2] == "X" && tablero[5] == "X" && tablero[8] == "X") ||
+			
+					(tablero[0] == "X" && tablero[4] == "X" && tablero[8] == "X") ||
+			
+					(tablero[6] == "X" && tablero[4] == "X" && tablero[2] == "X"))  {
+					
+					return 1;
+					
+					
+				} else if ((tablero[0] == "O" && tablero[1] == "O" && tablero[2] == "O") ||
+			
+					(tablero[3] == "O" && tablero[4] == "O" && tablero[5] == "O") ||
+			
+					(tablero[6] == "O" && tablero[7] == "O" && tablero[8] == "O") ||
+			
+					(tablero[0] == "O" && tablero[3] == "O" && tablero[6] == "O") ||
+			
+					(tablero[1] == "O" && tablero[4] == "O" && tablero[7] == "O") ||
+			
+					(tablero[2] == "O" && tablero[5] == "O" && tablero[8] == "O") ||
+			
+					(tablero[0] == "O" && tablero[4] == "O" && tablero[8] == "O") ||
+			
+					(tablero[6] == "O" && tablero[4] == "O" && tablero[2] == "O"))  {
+				
+					return 2;
+					
+			
+				} else{  if (tablero[0] != "" && tablero[1] != "" && tablero[2] != "" &&
+			
+					tablero[3] != "" && tablero[4] != "" && tablero[5] != "" &&
+			
+					tablero[6] != "" && tablero[7] != "" && tablero[8] != "" &&
+			
+					tablero[0] != "" && tablero[3] != "" && tablero[6] != "" &&
+			
+					tablero[1] != "" && tablero[4] != "" && tablero[7] != "" &&
+			
+					tablero[2] != "" && tablero[5] != "" && tablero[8] != "" &&
+			
+					tablero[0] != "" && tablero[4] != "" && tablero[8] != "" &&
+			
+					tablero[6] != "" && tablero[4] != "" && tablero[2] != "")  {
+				
+					return 0;
+				}
+					
+			}
+			}
+			
+		/* escribirIA() --> el ordenador hace la jugada que cree mejor para ganar la partida, mínimo una jugada aleatoria en una celda vacía */
+			function escribirIA(){
+				const tablero = [];
+				leerarray(tablero);
+				do{
+                    aleatorio = getRandomInt(0, 9);
+				}while (!celdavacia(aleatorio))
+               escribe(aleatorio);
+              
+           }
+ 
+           function getRandomInt(min, max) {
+               return Math.floor(Math.random() * (max - min)) + min;
+           }
+
+			
+			
+		/* celdavacía(celda) --> devuelve true si la celda indicada está vacía, false en caso contrario */
+			function celdavacia(celda){
+				const tablero = [];
+				leerarray(tablero);
+				if(tablero[celda] == ""){
+                    return true;                }
+			}
+            /* cambiaturno() --> cambia al siguiente jugador (símbolo) al que le toca jugar a continuación (O o X). Para ello primero se lee y después se pone el alternativo */
+            function cambiaturno(){
+                if (turno == 0){
+                    turno = 1;
+                }else{
+                    turno = 0;
+                }     
+			}
+             /* escribe(posicion, signo) --> pinta en la pantalla en la posición correspondiente el signo especificado (O o X) */
+             function escribe(celda){
+                const tablero = [];
+				leerarray(tablero); 
+                switch (celda){
+                    case 0:
+                    document.getElementById("c0").innerHTML = ficha[turno];
+                    break
+
+                    case 1:
+                    document.getElementById("c1").innerHTML = ficha[turno];
+                    break
+
+                    case 2:
+                    document.getElementById("c2").innerHTML = ficha[turno];
+                    break
+
+                    case 3:
+                    document.getElementById("c3").innerHTML = ficha[turno];
+                    break
+
+                    case 4:
+                    document.getElementById("c4").innerHTML = ficha[turno];
+                    break
+
+                    case 5:
+                    document.getElementById("c5").innerHTML = ficha[turno];
+                    break
+
+                    case 6:
+                    document.getElementById("c6").innerHTML = ficha[turno];
+                    break
+
+                    case 7:
+                    document.getElementById("c7").innerHTML = ficha[turno];
+                    break
+
+                    case 8:
+                    document.getElementById("c8").innerHTML = ficha[turno];
+                    break
+                }
+			}
+			/*Logica de el formulario*/
+            function botonesformulario(jugadores) {
+				if(jugadores == 1){
+					document.getElementById("nombre").style.display = "block";
+					document.getElementById("nombre1").style.display = "none";
+					document.getElementById("nombre2").style.display = "none";
+					document.getElementById("button-jugar").style.display = "block";
+					un_jugador = true;
+				}else if (jugadores == 2){
+					document.getElementById("nombre1").style.display = "block";
+					document.getElementById("nombre2").style.display = "block";
+					document.getElementById("nombre").style.display = "none";
+					document.getElementById("button-jugar").style.display = "block";
+					un_jugador = false;
+				}
+			}
+			/*Empezar juego*/
+			function empezarjuego(){
+				document.getElementById("formulario").style.display = "none";
+				document.getElementById("tablero").style.display = "block";
+				document.getElementById("abajo").style.display = "block";
+
+				/*Una vez empezado el juego, se escriben los nombres */
+
+				if (un_jugador){
+					nombre = document.getElementById("nombre").value;
+						document.getElementById("jugador1").innerHTML = nombre;
+						document.getElementById("jugador2").innerHTML = "Mr.Robot";
+				}else if (!un_jugador){
+					jug1 = document.getElementById("nombre1").value;
+					jug2 = document.getElementById("nombre2").value;
+					document.getElementById("jugador1").innerHTML = jug1;
+					document.getElementById("jugador2").innerHTML = jug2;
+
+				}
+			}	
+
+                    
+		</script>
+	</body>
+</html>
+
+
